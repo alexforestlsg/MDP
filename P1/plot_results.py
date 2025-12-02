@@ -3,16 +3,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 df = pd.read_csv('results.csv')
-df.columns = df.columns.str.strip()  # Remove any trailing whitespace
+df.columns = df.columns.str.strip() 
 
 k_values = sorted(df['k'].unique())
 
 for k in k_values:
     fig, ax = plt.subplots(figsize=(10, 6))
-    
-    # Separated by k
     k_data = df[df['k'] == k]
-    # Condition on x
     x_values = sorted(k_data['x'].unique())
     
     for x in x_values:
